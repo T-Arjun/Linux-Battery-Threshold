@@ -5,7 +5,7 @@
 ## Doc Update :
 This update introduces a minimal GUI using custom Tkinter. The GUI provides options to set three different modes. The work primarily focuses on the frontend part.
 
-use ```pip install customtkinter
+use ```pip install customtkinter```
 GUI update :
 ![alt text](image.png)
 
