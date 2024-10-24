@@ -2,18 +2,17 @@ import customtkinter
 import subprocess
 import getpass
 
-customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
-customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
-app = customtkinter.CTk()  # create CTk window like you do with the Tk window
+customtkinter.set_appearance_mode("System")  
+customtkinter.set_default_color_theme("blue")  
+app = customtkinter.CTk()  
 app.title("Battery Threshold")
 app.geometry("400x240")
 
-# Prompt for sudo password at the beginning
 sudo_password = getpass.getpass("Enter sudo password: ")
 
 def run_command(command):
     try:
-        # Run the command with sudo
+        
         result = subprocess.run(['sudo', '-S'] + command.split(), input=sudo_password + '\n', text=True, capture_output=True)
         print(result.stdout)
         if result.stderr:
@@ -30,7 +29,7 @@ def button_function_bal():
 def button_func_full():
     run_command("bat threshold 100")
 
-# Use CTkButton instead of tkinter Button
+
 button = customtkinter.CTkButton(master=app, text="Permanent Mode", command=button_function_per)
 button.place(relx=0.5, rely=0.25, anchor=customtkinter.CENTER)
 
